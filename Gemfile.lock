@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.2.8)
     bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.0.1-java)
     data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -49,10 +50,18 @@ GEM
       uuidtools (~> 2.1.2)
     dm-validations (1.2.0)
       dm-core (~> 1.2.0)
+    do_jdbc (0.10.7-java)
+      data_objects (= 0.10.7)
     do_sqlite3 (0.10.7)
       data_objects (= 0.10.7)
+    do_sqlite3 (0.10.7-java)
+      data_objects (= 0.10.7)
+      do_jdbc (= 0.10.7)
+      jdbc-sqlite3 (>= 3.5.8)
     fastercsv (1.5.5)
+    jdbc-sqlite3 (3.7.2.1)
     json (1.6.7)
+    json (1.6.7-java)
     json_pure (1.6.7)
     multi_json (1.0.4)
     rack (1.4.1)
@@ -67,6 +76,7 @@ GEM
     uuidtools (2.1.2)
 
 PLATFORMS
+  java
   ruby
 
 DEPENDENCIES
