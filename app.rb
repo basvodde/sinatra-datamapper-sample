@@ -5,16 +5,16 @@ require 'json'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/dev.db")
 
-class Article
+class POne
   include DataMapper::Resource
-
   property :id, Serial
-  property :title, String
-  property :content, Text
+  property :licno, String
+  property :tax_ref, String
+  property :status, String 
 
   def self.parse_json(body)
     json = JSON.parse(body)
-    ret = { :title => json['article']['title'], :content => json['article']['content'] }
+    ret = { :licno => json['p_1']['licno'], :tax_ref => json['p_1']['tax_ref'], :status => json['p_1']['status'] }
     ret 
   end
 
@@ -26,15 +26,15 @@ get '/' do
   erb :index
 end
 
-get '/articles' do
-  @articles = Article.all
+get '/p_ones' do
+  @p_ones = POne.all
   erb :'articles/index'
 end
 
-post '/articles' do
-  data = Article.parse_json(request.body.read)
-  article = Article.new(data)  
-  if article.save
+post '/p_ones' do
+  data = POne.parse_json(request.body.read)
+  p_one = POne.new(data)  
+  if p_one.save
     status 201
   else
     status 500
