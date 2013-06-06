@@ -33,3 +33,4 @@ Future enhancements
 ===================
 
 - Cover the routes with RSpec tests
+
